@@ -414,12 +414,12 @@ async def get_borrows(current_user: User = Depends(get_current_user)):
         book = await db.books.find_one({"id": borrow["book_id"]})
         user = await db.users.find_one({"id": borrow["user_id"]})
         
-        enriched_borrow = {
+        enriched_borrow = clean_mongo_doc({
             **borrow,
             "book_title": book["title"] if book else "Unknown",
             "book_author": book["author"] if book else "Unknown",
             "user_name": user["name"] if user else "Unknown"
-        }
+        })
         enriched_borrows.append(enriched_borrow)
     
     return enriched_borrows
