@@ -71,10 +71,13 @@ class LibraryAPITester:
         """Test authentication endpoints"""
         print("\n=== Testing Authentication System ===")
         
+        # Generate unique emails for this test run
+        timestamp = str(int(time.time()))
+        
         # Test librarian registration
         librarian_data = {
             "name": "Sarah Johnson",
-            "email": "sarah.librarian@library.edu",
+            "email": f"sarah.librarian.{timestamp}@library.edu",
             "password": "LibraryAdmin2024!",
             "role": "librarian"
         }
@@ -90,7 +93,7 @@ class LibraryAPITester:
         # Test member registration
         member_data = {
             "name": "Michael Chen",
-            "email": "michael.reader@email.com",
+            "email": f"michael.reader.{timestamp}@email.com",
             "password": "BookLover2024!",
             "role": "member"
         }
@@ -105,7 +108,7 @@ class LibraryAPITester:
 
         # Test librarian login
         login_data = {
-            "email": "sarah.librarian@library.edu",
+            "email": f"sarah.librarian.{timestamp}@library.edu",
             "password": "LibraryAdmin2024!"
         }
         
@@ -117,7 +120,7 @@ class LibraryAPITester:
 
         # Test member login
         login_data = {
-            "email": "michael.reader@email.com",
+            "email": f"michael.reader.{timestamp}@email.com",
             "password": "BookLover2024!"
         }
         
