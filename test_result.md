@@ -137,15 +137,18 @@ backend:
 
   - task: "Borrowing System"
     implemented: true
-    working: "NA"
+    working: true
     file: "server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented borrowing and returning system with due dates, fine calculations, and overdue tracking"
+      - working: true
+        agent: "testing"
+        comment: "✅ COMPREHENSIVE TESTING PASSED: Complete borrowing system working correctly. Tested book borrowing, return functionality with fine calculations, duplicate borrow prevention, overdue tracking, and proper access controls. Fixed ObjectId serialization issue for borrow records."
 
   - task: "User Management"
     implemented: true
