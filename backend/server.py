@@ -139,6 +139,14 @@ class OverduePrediction(BaseModel):
     risk_level: str
 
 # Utility functions
+def clean_mongo_doc(doc):
+    """Remove MongoDB ObjectId fields that can't be JSON serialized"""
+    if isinstance(doc, dict):
+        return {k: v for k, v in doc.items() if k != '_id'}
+    elif isinstance(doc, list):
+        return [clean_mongo_doc(item) for item in doc]
+    return doc
+
 def hash_password(password: str) -> str:
     return hashlib.sha256(password.encode()).hexdigest()
 
