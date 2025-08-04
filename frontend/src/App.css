@@ -1,38 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #0f0f10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom styles for the Library Management System */
+.hero-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.nav-blur {
+  backdrop-filter: blur(10px);
+  background: rgba(99, 102, 241, 0.9);
+}
+
+/* Loading animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Book card styles */
+.book-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.book-card:hover {
+  border-color: #6366f1;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Search input with icon */
+.search-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%236b7280'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  background-size: 20px;
+  padding-left: 44px;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-borrowed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-overdue {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.status-returned {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+/* Table styles */
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-responsive th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table-responsive tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Progress bars */
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-high {
+  background-color: #dc2626;
+}
+
+.progress-medium {
+  background-color: #d97706;
+}
+
+.progress-low {
+  background-color: #059669;
+}
+
+/* Form styles */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #6366f1;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #5048e5;
+}
+
+.btn-secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #4b5563;
+}
+
+.btn-success {
+  background-color: #059669;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #047857;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+/* Recommendation cards */
+.recommendation-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.recommendation-score {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Analytics charts */
+.chart-container {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.metric-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-full {
+    width: 100%;
+  }
+  
+  .mobile-text-center {
+    text-align: center;
+  }
+  
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .dark-mode .book-card {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    border-color: #6b7280;
+  }
+  
+  .dark-mode .form-input {
+    background-color: #374151;
+    border-color: #6b7280;
+    color: #f9fafb;
+  }
 }
