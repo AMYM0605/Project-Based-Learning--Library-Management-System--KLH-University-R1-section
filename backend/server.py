@@ -646,7 +646,7 @@ async def get_dashboard_stats(current_user: User = Depends(get_current_user)):
         "total_users": total_users,
         "active_borrows": active_borrows,
         "overdue_books": overdue_books,
-        "recent_activity": recent_borrows
+        "recent_activity": clean_mongo_doc(recent_borrows)
     }
 
 # User Management (for librarians)
